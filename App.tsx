@@ -8,9 +8,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './src/Screens/Home';
-import Login from './src/Screens/Login';
-import Auth from './src/Screens/Auth';
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import Auth from './src/screens/Auth';
 import { RootStackParamList } from './src/types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
