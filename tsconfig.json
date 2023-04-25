@@ -4,7 +4,9 @@
     "types": [
       "@types/styled-components-react-native",
       "@types/jest",
-      "@types/mocha"
-    ]
+      "@types/mocha",
+      "@types/node"
+    ],
+    "typeRoots": ["./src/types"]
   }
 }
