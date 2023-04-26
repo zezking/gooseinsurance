@@ -5,7 +5,7 @@ import StackNavigator from './navigation/StackNavigator';
 import TabNavigator from './navigation/TabNavigator';
 
 const AppContainer = (): JSX.Element => {
-  const { isAuthenticated } = useAppSelector(state => state.auth);
+  const { isAuthenticated } = useAppSelector(state => state);
 
   return (
     <NavigationContainer>
