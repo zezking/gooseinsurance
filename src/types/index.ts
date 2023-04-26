@@ -2,6 +2,7 @@ export type RootStackParamList = {
   Home: undefined;
   Auth: undefined;
   Login: undefined;
+  Account: undefined;
 };
 
 export type UserData = {
