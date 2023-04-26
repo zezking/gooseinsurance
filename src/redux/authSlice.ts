@@ -4,7 +4,7 @@ import { AuthState, FormValues, UserData } from '../types';
 
 const initialState: AuthState = {
   status: 'unauthorized',
-  isAuthenticated: false,
+  isAuthenticated: true,
   user: null,
 };
 export const authenticateUser = createAsyncThunk(
