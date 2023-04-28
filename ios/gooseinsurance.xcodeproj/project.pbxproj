@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-gooseinsurance-gooseinsuranceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-gooseinsurance-gooseinsuranceTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4119F2176C18421BB480BC21 /* GraphikTrial-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ADFF3E06AFD447AAAFAF710 /* GraphikTrial-Bold.otf */; };
+		E4DC58D3A04A477A8E1FF2E3 /* GraphikTrial-Extralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20E4B79352CE4FE89463B67E /* GraphikTrial-Extralight.otf */; };
+		1FA941489A354D6491D3F517 /* GraphikTrial-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB2449E585B4AB8A6C0A7C9 /* GraphikTrial-Light.otf */; };
+		3D579B3785F7426BBCCBECC7 /* GraphikTrial-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 897FF24F7B4E4B8D9CA2E3EA /* GraphikTrial-Medium.otf */; };
+		79F18196429E483888CE1E4C /* GraphikTrial-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00E947DE4F834318B17812DF /* GraphikTrial-Regular.otf */; };
+		4A0E5C5BEA5F48ED94B8ACEB /* GraphikTrial-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542832AB52554DE8B1704118 /* GraphikTrial-Semibold.otf */; };
+		47C698F29B8E47D5AEDA6C0B /* GraphikTrial-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 130E8D64706D4D51A02B475B /* GraphikTrial-Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = gooseinsurance/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-gooseinsurance-gooseinsuranceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gooseinsurance-gooseinsuranceTests.release.xcconfig"; path = "Target Support Files/Pods-gooseinsurance-gooseinsuranceTests/Pods-gooseinsurance-gooseinsuranceTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4ADFF3E06AFD447AAAFAF710 /* GraphikTrial-Bold.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Bold.otf"; path = "../src/assets/fonts/GraphikTrial-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20E4B79352CE4FE89463B67E /* GraphikTrial-Extralight.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Extralight.otf"; path = "../src/assets/fonts/GraphikTrial-Extralight.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4EB2449E585B4AB8A6C0A7C9 /* GraphikTrial-Light.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Light.otf"; path = "../src/assets/fonts/GraphikTrial-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		897FF24F7B4E4B8D9CA2E3EA /* GraphikTrial-Medium.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Medium.otf"; path = "../src/assets/fonts/GraphikTrial-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		00E947DE4F834318B17812DF /* GraphikTrial-Regular.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Regular.otf"; path = "../src/assets/fonts/GraphikTrial-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		542832AB52554DE8B1704118 /* GraphikTrial-Semibold.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Semibold.otf"; path = "../src/assets/fonts/GraphikTrial-Semibold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		130E8D64706D4D51A02B475B /* GraphikTrial-Thin.otf */ = {isa = PBXFileReference; name = "GraphikTrial-Thin.otf"; path = "../src/assets/fonts/GraphikTrial-Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				3F0F2D28E8C541DBAFE6649A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +162,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		3F0F2D28E8C541DBAFE6649A /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				4ADFF3E06AFD447AAAFAF710 /* GraphikTrial-Bold.otf */,
+				20E4B79352CE4FE89463B67E /* GraphikTrial-Extralight.otf */,
+				4EB2449E585B4AB8A6C0A7C9 /* GraphikTrial-Light.otf */,
+				897FF24F7B4E4B8D9CA2E3EA /* GraphikTrial-Medium.otf */,
+				00E947DE4F834318B17812DF /* GraphikTrial-Regular.otf */,
+				542832AB52554DE8B1704118 /* GraphikTrial-Semibold.otf */,
+				130E8D64706D4D51A02B475B /* GraphikTrial-Thin.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +274,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4119F2176C18421BB480BC21 /* GraphikTrial-Bold.otf in Resources */,
+				E4DC58D3A04A477A8E1FF2E3 /* GraphikTrial-Extralight.otf in Resources */,
+				1FA941489A354D6491D3F517 /* GraphikTrial-Light.otf in Resources */,
+				3D579B3785F7426BBCCBECC7 /* GraphikTrial-Medium.otf in Resources */,
+				79F18196429E483888CE1E4C /* GraphikTrial-Regular.otf in Resources */,
+				4A0E5C5BEA5F48ED94B8ACEB /* GraphikTrial-Semibold.otf in Resources */,
+				47C698F29B8E47D5AEDA6C0B /* GraphikTrial-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

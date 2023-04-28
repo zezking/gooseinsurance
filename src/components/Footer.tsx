@@ -2,14 +2,15 @@ import styled from 'styled-components/native';
 import { Container } from './Container';
 import { Linking } from 'react-native';
 import { TERMS_OF_SERVICES_URL, PRIVACY_POLICY_URL } from '../constants';
+import { Text } from '../components/Text';
 interface TextProp {
   fontSize: string;
-  fontWeight: string;
+  fontFamily: string;
 }
 
-const Text = styled.Text<TextProp>`
+const FooterText = styled(Text)<TextProp>`
   font-size: ${props => props.fontSize};
-  font-weight: ${props => props.fontWeight};
+  font-family: ${props => props.fontFamily};
   margin-bottom: 8px;
 `;
 
@@ -21,26 +22,26 @@ const Footer = (): JSX.Element => {
   return (
     <Container alignItems="center" justify="center">
       <Wrapper>
-        <Text
+        <FooterText
           fontSize="11px"
-          fontWeight="600"
+          fontFamily="GraphikTrial-Medium"
           onPress={() => Linking.openURL(TERMS_OF_SERVICES_URL)}>
           Terms of Service
-        </Text>
-        <Text fontSize="11px" fontWeight="600">
+        </FooterText>
+        <FooterText fontSize="11px" fontFamily="GraphikTrial-SemiBold">
           &nbsp; | &nbsp;
-        </Text>
-        <Text
+        </FooterText>
+        <FooterText
           fontSize="11px"
-          fontWeight="600"
+          fontFamily="GraphikTrial-Medium"
           onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}>
           Privacy Policy
-        </Text>
+        </FooterText>
       </Wrapper>
-      <Text fontSize="8px" fontWeight="400">
+      <FooterText fontSize="8px" fontFamily="Graphik-Normal">
         Insurance is sold by Goose Insurance and underwritten by various
         companies
-      </Text>
+      </FooterText>
     </Container>
   );
 };

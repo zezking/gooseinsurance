@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Text } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/theme';
+
 const App = (): JSX.Element => {
   return (
     <Provider store={store}>
