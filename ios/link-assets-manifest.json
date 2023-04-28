@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/GraphikTrial-Bold.otf",
+      "sha1": "5e7a093b2ed19c4a8389e9ff04c2022b6af3611c"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Extralight.otf",
+      "sha1": "88d6e9b1fd9b33f740f1e6f8c2512a330f481ebc"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Light.otf",
+      "sha1": "f797d4ddd1ad86bbfbd7081a33fd2634ace036fe"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Medium.otf",
+      "sha1": "10a6e965aeecb194f7db568540f5790c3dd84339"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Regular.otf",
+      "sha1": "fdff116cfdbd9b0f6d99ce2772a57bfc31397e50"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Semibold.otf",
+      "sha1": "1f7f9a7d4b4dc7d7a942f47bbaa59c45c5342abf"
+    },
+    {
+      "path": "src/assets/fonts/GraphikTrial-Thin.otf",
+      "sha1": "775d5e3e6e900edbabece6211a212f552a55a047"
+    }
+  ]
+}

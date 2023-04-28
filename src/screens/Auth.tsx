@@ -2,19 +2,20 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
-import { StatusBar } from 'react-native';
 import Footer from '../components/Footer';
 import { Card } from '../components/Card';
 import { Container } from '../components/Container';
 import { AuthHeader } from '../components/Headers';
+import { Text } from '../components/Text';
+import { StatusBar, Platform } from 'react-native';
 type AuthScreenNavigationProp = NativeStackScreenProps<
   RootStackParamList,
   'Auth'
 >;
 
-const Title = styled.Text`
+const Title = styled(Text)`
   font-size: 13px;
-  font-weight: 600;
+  font-family: GraphikTrial-SemiBold;
   margin-top: 26px;
   margin-bottom: 50px;
   letter-spacing: 2px;
@@ -41,9 +42,11 @@ const FlagButton = styled.TouchableOpacity`
   elevation: 10;
 `;
 
-const ButtonText = styled.Text`
+const ButtonText = styled(Text)`
   font-size: 14px;
   font-weight: 500;
+  font-family: GraphikTrial-Medium;
+  color: ${props => props.theme.colors.text};
 `;
 
 interface AuthButtonProps {
@@ -68,18 +71,18 @@ const buttonIconStyle = {
 const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
   return (
     <Container>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" backgroundColor="#AD3272" />
       <AuthHeader>
         <Container alignItems="center" marginTop="45px">
           <FlagButton>
             <FastImage
               style={flagIconStyle}
-              source={require('../assets/flag-ca.webp')}
+              source={require('../assets/icons/flag-ca.webp')}
             />
           </FlagButton>
           <FastImage
             style={logoStyle}
-            source={require('../assets/goose-logo-lg-white.webp')}
+            source={require('../assets/logos/goose-logo-lg-white.webp')}
           />
           <Title>THE INSURANCE SUPER-APP</Title>
         </Container>
