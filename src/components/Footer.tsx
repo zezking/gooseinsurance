@@ -2,17 +2,11 @@ import styled from 'styled-components/native';
 import { Container } from './Container';
 import { Linking } from 'react-native';
 import { TERMS_OF_SERVICES_URL, PRIVACY_POLICY_URL } from '../constants';
-import { Text } from '../components/Text';
+import { Typography } from './Typography';
 interface TextProp {
   fontSize: string;
   fontFamily: string;
 }
-
-const FooterText = styled(Text)<TextProp>`
-  font-size: ${props => props.fontSize};
-  font-family: ${props => props.fontFamily};
-  margin-bottom: 8px;
-`;
 
 const Wrapper = styled.View`
   display: flex;
@@ -22,26 +16,28 @@ const Footer = (): JSX.Element => {
   return (
     <Container alignItems="center" justify="center">
       <Wrapper>
-        <FooterText
+        <Typography
           fontSize="11px"
-          fontFamily="GraphikTrial-Medium"
+          fontWeight="SemiBold"
+          marginBottom="8px"
           onPress={() => Linking.openURL(TERMS_OF_SERVICES_URL)}>
           Terms of Service
-        </FooterText>
-        <FooterText fontSize="11px" fontFamily="GraphikTrial-SemiBold">
+        </Typography>
+        <Typography fontSize="11px" fontWeight="SemiBold">
           &nbsp; | &nbsp;
-        </FooterText>
-        <FooterText
+        </Typography>
+        <Typography
           fontSize="11px"
-          fontFamily="GraphikTrial-Medium"
+          fontWeight="SemiBold"
+          marginBottom="8px"
           onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}>
           Privacy Policy
-        </FooterText>
+        </Typography>
       </Wrapper>
-      <FooterText fontSize="8px" fontFamily="Graphik-Normal">
+      <Typography fontSize="8px" marginBottom="8px" fontWeight="Regular">
         Insurance is sold by Goose Insurance and underwritten by various
         companies
-      </FooterText>
+      </Typography>
     </Container>
   );
 };

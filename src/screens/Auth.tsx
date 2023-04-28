@@ -6,21 +6,12 @@ import Footer from '../components/Footer';
 import { Card } from '../components/Card';
 import { Container } from '../components/Container';
 import { AuthHeader } from '../components/Headers';
-import { Text } from '../components/Text';
-import { StatusBar, Platform } from 'react-native';
+import { StatusBar } from 'react-native';
+import { Typography } from '../components/Typography';
 type AuthScreenNavigationProp = NativeStackScreenProps<
   RootStackParamList,
   'Auth'
 >;
-
-const Title = styled(Text)`
-  font-size: 13px;
-  font-family: GraphikTrial-SemiBold;
-  margin-top: 26px;
-  margin-bottom: 50px;
-  letter-spacing: 2px;
-  color: ${props => props.theme.colors.offWhite};
-`;
 
 const logoStyle = { width: 215, height: 70 };
 const flagIconStyle = {
@@ -42,13 +33,7 @@ const FlagButton = styled.TouchableOpacity`
   elevation: 10;
 `;
 
-const ButtonText = styled(Text)`
-  font-size: 14px;
-  font-weight: 500;
-  font-family: GraphikTrial-Medium;
-  color: ${props => props.theme.colors.text};
-`;
-
+//
 interface AuthButtonProps {
   borderBottomWidth?: string;
 }
@@ -84,7 +69,15 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             style={logoStyle}
             source={require('../assets/logos/goose-logo-lg-white.webp')}
           />
-          <Title>THE INSURANCE SUPER-APP</Title>
+          <Typography
+            fontSize="13px"
+            fontWeight="SemiBold"
+            marginTop="26px"
+            marginBottom="50px"
+            letterSpacing="2px"
+            color="#F0F0F0">
+            THE INSURANCE SUPER-APP
+          </Typography>
         </Container>
       </AuthHeader>
       <Card height="312px" width="310px" position="absolute">
@@ -93,21 +86,27 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             style={buttonIconStyle}
             source={require('../assets/icons/facebookv2.webp')}
           />
-          <ButtonText>Continue with Facebook</ButtonText>
+          <Typography fontSize="14px" fontWeight="Medium">
+            Continue with Facebook
+          </Typography>
         </AuthButton>
         <AuthButton borderBottomWidth="1px">
           <FastImage
             style={buttonIconStyle}
             source={require('../assets/icons/gplus.webp')}
           />
-          <ButtonText>Continue with Google</ButtonText>
+          <Typography fontSize="14px" fontWeight="Medium">
+            Continue with Google
+          </Typography>
         </AuthButton>
         <AuthButton borderBottomWidth="1px">
           <FastImage
             style={buttonIconStyle}
             source={require('../assets/icons/apple.webp')}
           />
-          <ButtonText>Continue with Apple</ButtonText>
+          <Typography fontSize="14px" fontWeight="Medium">
+            Continue with Apple
+          </Typography>
         </AuthButton>
         <AuthButton onPress={() => navigation.navigate('Login')}>
           <FastImage
@@ -121,7 +120,9 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             source={require('../assets/icons/mailv2.webp')}
             resizeMode={FastImage.resizeMode.contain}
           />
-          <ButtonText>Login with Email</ButtonText>
+          <Typography fontSize="14px" fontWeight="Medium">
+            Login with Email
+          </Typography>
         </AuthButton>
       </Card>
       <Footer />
