@@ -14,6 +14,7 @@ interface WrapperProps extends ViewProps {
   paddingLeft?: string;
   paddingHorizontal?: string;
   width?: string;
+  paddingTop?: string;
 }
 
 const Wrapper = styled.View<WrapperProps>`
@@ -27,6 +28,7 @@ const Wrapper = styled.View<WrapperProps>`
   background-color: ${props => props.bgColor || 'none'};
   flex-grow: ${props => props.flexGrow || 0};
   flex-shrink: ${props => props.flexShrink || 0};
+  padding-top: ${props => props.paddingTop || 0};
   padding-horizontal: ${props => props.paddingHorizontal || 0};
 `;
 

@@ -1,7 +1,7 @@
 import {
-  Button,
   Keyboard,
   StatusBar,
+  TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
 import { useAppDispatch } from '../redux/hooks';
@@ -11,9 +11,10 @@ import { FormValues } from '../types';
 import { Container } from '../components/Container';
 import { Typography } from '../components/Typography';
 import { theme } from '../theme';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { LoginHeader } from '../components/Headers';
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const TextInput = styled.TextInput<{ inputFocused?: boolean }>`
   width: 100%;
@@ -23,6 +24,18 @@ const TextInput = styled.TextInput<{ inputFocused?: boolean }>`
       ? props.theme.colors.primary
       : props.theme.colors.border};
   padding-bottom: 8px;
+  font-family: 'GraphikTrial-Medium';
+`;
+
+interface ButtonProps {
+  bgColor: string;
+}
+const Button = styled.Button<ButtonProps>`
+  width: 100%;
+  height: 100%;
+  background-color: ${props => props.bgColor};
+  color: ${props => props.theme.colors.black};
+  font-family: 'GraphikTrial-Medium';
 `;
 
 const DismissKeyboard = ({ children }: { children: React.ReactNode }) => {
@@ -35,7 +48,19 @@ const DismissKeyboard = ({ children }: { children: React.ReactNode }) => {
 
 const Login = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { control, handleSubmit, reset } = useForm<FormValues>();
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onTouched',
+  });
+
   const [emailInputFocused, setEmailInputFocused] = useState<boolean>(false);
   const [passwordInputFocused, setPasswordInputFocused] =
     useState<boolean>(false);
@@ -50,11 +75,10 @@ const Login = (): JSX.Element => {
       <Container bgColor={theme.colors.white} alignItems="flex-start">
         <StatusBar barStyle={'default'} />
         <LoginHeader />
-
         <Container
           alignItems="flex-start"
           paddingHorizontal="20px"
-          height="75%">
+          height="72%">
           <Typography
             fontSize="26px"
             fontWeight="SemiBold"
@@ -80,19 +104,51 @@ const Login = (): JSX.Element => {
               control={control}
               rules={{
                 required: true,
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: 'Invalid email format',
+                },
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  onBlur={() => setEmailInputFocused(!emailInputFocused)}
-                  autoCapitalize="none"
-                  onChangeText={onChange}
-                  autoCorrect={false}
-                  keyboardType="email-address"
-                  autoComplete="email"
-                  value={value}
-                  inputFocused={emailInputFocused}
-                />
-              )}
+              render={({
+                field: { onChange, onBlur, value },
+                fieldState: { invalid, isTouched },
+              }) => {
+                const handleBlur = () => {
+                  setEmailInputFocused(!emailInputFocused);
+                  onBlur();
+                };
+
+                return (
+                  <>
+                    <TextInput
+                      onBlur={handleBlur}
+                      autoCapitalize="none"
+                      onChangeText={onChange}
+                      autoCorrect={false}
+                      keyboardType="email-address"
+                      autoComplete="email"
+                      value={value}
+                      inputFocused={emailInputFocused}
+                    />
+                    {errors.email?.type === 'pattern' && (
+                      <Icon
+                        name="exclamationcircle"
+                        color={theme.colors.red}
+                        size={20}
+                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                      />
+                    )}
+                    {!invalid && isTouched && (
+                      <Icon
+                        name="checkcircle"
+                        color={theme.colors.green}
+                        size={20}
+                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                      />
+                    )}
+                  </>
+                );
+              }}
               name="email"
             />
           </Container>
@@ -113,25 +169,77 @@ const Login = (): JSX.Element => {
                 minLength: 8,
                 required: true,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  onBlur={() => setPasswordInputFocused(!passwordInputFocused)}
-                  autoCapitalize="none"
-                  onChangeText={onChange}
-                  autoCorrect={false}
-                  autoComplete="password"
-                  value={value}
-                  inputFocused={passwordInputFocused}
-                  secureTextEntry={true}
-                />
-              )}
+              render={({
+                field: { onChange, onBlur, value },
+                fieldState: { invalid, isTouched },
+              }) => {
+                const handleBlur = () => {
+                  setPasswordInputFocused(!emailInputFocused);
+                  onBlur();
+                };
+
+                return (
+                  <>
+                    <TextInput
+                      onBlur={handleBlur}
+                      autoCapitalize="none"
+                      onChangeText={onChange}
+                      autoCorrect={false}
+                      autoComplete="password"
+                      value={value}
+                      inputFocused={passwordInputFocused}
+                      secureTextEntry={true}
+                    />
+
+                    {errors.password?.type === 'minLength' && (
+                      <Icon
+                        name="exclamationcircle"
+                        color={theme.colors.red}
+                        size={20}
+                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                      />
+                    )}
+
+                    {!invalid && isTouched && (
+                      <Icon
+                        name="checkcircle"
+                        color={theme.colors.green}
+                        size={20}
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          bottom: 10,
+                        }}
+                      />
+                    )}
+                  </>
+                );
+              }}
               name="password"
             />
           </Container>
         </Container>
-
-        <Container>
-          <Button title="Login" onPress={handleSubmit(onSubmit)} />
+        <Container
+          width="100%"
+          height="100%"
+          bgColor={isValid ? theme.colors.primary : theme.colors.lightPurple}
+          alignItems="center">
+          <TouchableOpacity
+            onPress={handleSubmit(onSubmit)}
+            disabled={!isValid}
+            style={{
+              height: '100%',
+              width: '100%',
+              paddingTop: 28,
+              alignItems: 'center',
+            }}>
+            <Typography
+              fontSize="18px"
+              fontWeight="Medium"
+              color={theme.colors.white}>
+              Login
+            </Typography>
+          </TouchableOpacity>
         </Container>
       </Container>
     </DismissKeyboard>

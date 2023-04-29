@@ -42,6 +42,6 @@ export type AuthResponse = {
 };
 
 export type FormValues = {
-  email: string;
-  password: string;
+  email: string | undefined;
+  password: string | undefined;
 };

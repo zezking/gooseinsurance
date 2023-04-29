@@ -11,6 +11,9 @@ declare module 'styled-components/native' {
       offWhite: string;
       text: string;
       border: string;
+      green: string;
+      red: string;
+      lightPurple: string;
     };
   }
 }
