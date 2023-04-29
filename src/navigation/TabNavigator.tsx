@@ -16,7 +16,8 @@ const NavIcon = styled.Image<NavIconProps>`
   width: 20px;
   height: 20px;
   margin-bottom: 5px;
-  tint-color: ${props => (props.focused ? '#F72697' : '#14162C')};
+  tint-color: ${props =>
+    props.focused ? props.theme.colors.primary : props.theme.colors.text};
 `;
 const TabNavigator = (): JSX.Element => {
   return (

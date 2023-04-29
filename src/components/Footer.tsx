@@ -3,10 +3,6 @@ import { Container } from './Container';
 import { Linking } from 'react-native';
 import { TERMS_OF_SERVICES_URL, PRIVACY_POLICY_URL } from '../constants';
 import { Typography } from './Typography';
-interface TextProp {
-  fontSize: string;
-  fontFamily: string;
-}
 
 const Wrapper = styled.View`
   display: flex;

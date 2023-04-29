@@ -1,5 +1,5 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types';
+import { AuthScreenNavigationProp, RootStackParamList } from '../types';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 import Footer from '../components/Footer';
@@ -8,10 +8,6 @@ import { Container } from '../components/Container';
 import { AuthHeader } from '../components/Headers';
 import { StatusBar } from 'react-native';
 import { Typography } from '../components/Typography';
-type AuthScreenNavigationProp = NativeStackScreenProps<
-  RootStackParamList,
-  'Auth'
->;
 
 const logoStyle = { width: 215, height: 70 };
 const flagIconStyle = {

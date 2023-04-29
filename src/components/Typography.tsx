@@ -1,6 +1,7 @@
+import { TextProps } from 'react-native/types';
 import styled from 'styled-components/native';
 
-interface TextProps extends Text {
+interface WrapperProps extends TextProps {
   fontSize: string;
   fontWeight?:
     | 'Bold'
@@ -14,13 +15,9 @@ interface TextProps extends Text {
   marginTop?: string;
   marginBottom?: string;
   color?: string;
-  onPress?(): void;
-}
-interface TypographyProps extends TextProps {
-  children: React.ReactNode;
 }
 
-const Text = styled.Text<TextProps>`
+const Wrapper = styled.Text<WrapperProps>`
   font-size: 13px;
   font-family: GraphikTrial-${props => props.fontWeight || 'Regular'};
   font-size: ${props => props.fontSize || '10px'};
@@ -30,27 +27,10 @@ const Text = styled.Text<TextProps>`
   margin-bottom: ${props => props.marginBottom || 0};
 `;
 
-
 export const Typography = ({
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  marginTop,
-  marginBottom,
-  color,
   children,
-  onPress,
-}: TypographyProps) => {
-  return (
-    <Text
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      letterSpacing={letterSpacing}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      color={color}
-      onPress={onPress}>
-      {children}
-    </Text>
-  );
+
+  ...rest
+}: WrapperProps) => {
+  return <Wrapper {...rest}>{children}</Wrapper>;
 };

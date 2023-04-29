@@ -1,9 +1,21 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 export type RootStackParamList = {
   Home: undefined;
   Auth: undefined;
   Login: undefined;
   Account: undefined;
 };
+
+export type LoginScreenNavigationProp = NativeStackScreenProps<
+  RootStackParamList,
+  'Login'
+>;
+
+export type AuthScreenNavigationProp = NativeStackScreenProps<
+  RootStackParamList,
+  'Auth'
+>;
 
 export type UserData = {
   user: {

@@ -1,13 +1,10 @@
+import { ViewProps } from 'react-native/types';
 import styled from 'styled-components/native';
 
-interface WrapperProps {
+interface WrapperProps extends ViewProps {
   height: string;
   width: string;
   position?: string;
-}
-
-interface CardProps extends WrapperProps {
-  children: React.ReactNode;
 }
 
 const Wrapper = styled.View<WrapperProps>`
@@ -27,10 +24,6 @@ const Wrapper = styled.View<WrapperProps>`
   z-index: 99;
 `;
 
-export const Card = ({ children, height, width, position }: CardProps) => {
-  return (
-    <Wrapper height={height} width={width} position={position}>
-      {children}
-    </Wrapper>
-  );
+export const Card = ({ children, ...rest }: WrapperProps) => {
+  return <Wrapper {...rest}>{children}</Wrapper>;
 };
