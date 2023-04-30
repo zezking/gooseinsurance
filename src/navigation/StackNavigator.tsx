@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../screens/Login';
 import Auth from '../screens/Auth';
 import { RootStackParamList } from '../types';
-import FastImage from 'react-native-fast-image';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const StackNavigator = (): JSX.Element => {
@@ -17,9 +17,7 @@ const StackNavigator = (): JSX.Element => {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{
-          headerTitle: '',
-        }}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

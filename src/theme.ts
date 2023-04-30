@@ -10,5 +10,8 @@ export const theme: DefaultTheme = {
     deepPurple: '#AD3272',
     text: '#14162C',
     border: '#E1E1E1',
+    green: '#6BC9C9',
+    red: '#D50032',
+    lightPurple: '#E875B3',
   },
 };

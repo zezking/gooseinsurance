@@ -1,9 +1,21 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 export type RootStackParamList = {
   Home: undefined;
   Auth: undefined;
   Login: undefined;
   Account: undefined;
 };
+
+export type LoginScreenNavigationProp = NativeStackScreenProps<
+  RootStackParamList,
+  'Login'
+>;
+
+export type AuthScreenNavigationProp = NativeStackScreenProps<
+  RootStackParamList,
+  'Auth'
+>;
 
 export type UserData = {
   user: {
@@ -20,7 +32,7 @@ export type UserData = {
 };
 
 export type AuthState = {
-  status: string;
+  status: 'authenticated' | 'unauthenticated' | 'loading';
   isAuthenticated: boolean;
   user: UserData | null;
 };
@@ -30,6 +42,6 @@ export type AuthResponse = {
 };
 
 export type FormValues = {
-  email: string;
-  password: string;
+  email: string | undefined;
+  password: string | undefined;
 };
