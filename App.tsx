@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Text } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/theme';
+import FlashMessage from 'react-native-flash-message';
 
 const App = (): JSX.Element => {
   return (
@@ -13,6 +14,7 @@ const App = (): JSX.Element => {
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
         <ThemeProvider theme={theme}>
           <AppContainer />
+          <FlashMessage position="top" />
         </ThemeProvider>
       </PersistGate>
     </Provider>

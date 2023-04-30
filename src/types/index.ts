@@ -32,7 +32,7 @@ export type UserData = {
 };
 
 export type AuthState = {
-  status: string;
+  status: 'authenticated' | 'unauthenticated' | 'loading';
   isAuthenticated: boolean;
   user: UserData | null;
 };

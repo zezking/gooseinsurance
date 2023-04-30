@@ -4,7 +4,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { useAppDispatch } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { authenticateUser } from '../redux/authSlice';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { FormValues } from '../types';
@@ -15,6 +15,8 @@ import React, { useState } from 'react';
 import { LoginHeader } from '../components/Headers';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { showMessage } from 'react-native-flash-message';
+import { Loader } from '../components/Loader';
 
 const TextInput = styled.TextInput<{ inputFocused?: boolean }>`
   width: 100%;
@@ -24,17 +26,6 @@ const TextInput = styled.TextInput<{ inputFocused?: boolean }>`
       ? props.theme.colors.primary
       : props.theme.colors.border};
   padding-bottom: 8px;
-  font-family: 'GraphikTrial-Medium';
-`;
-
-interface ButtonProps {
-  bgColor: string;
-}
-const Button = styled.Button<ButtonProps>`
-  width: 100%;
-  height: 100%;
-  background-color: ${props => props.bgColor};
-  color: ${props => props.theme.colors.black};
   font-family: 'GraphikTrial-Medium';
 `;
 
@@ -48,6 +39,8 @@ const DismissKeyboard = ({ children }: { children: React.ReactNode }) => {
 
 const Login = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const authStatus = useAppSelector(state => state.status);
+
   const {
     control,
     handleSubmit,
@@ -65,9 +58,20 @@ const Login = (): JSX.Element => {
   const [passwordInputFocused, setPasswordInputFocused] =
     useState<boolean>(false);
 
+  if (authStatus === 'loading') {
+    return <Loader />;
+  }
+
   const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
-    await dispatch(authenticateUser(data)).unwrap();
-    reset();
+    try {
+      await dispatch(authenticateUser(data)).unwrap();
+    } catch (err: any) {
+      showMessage({
+        message: err.message,
+        backgroundColor: 'red',
+        type: 'danger',
+      });
+    }
   };
 
   return (

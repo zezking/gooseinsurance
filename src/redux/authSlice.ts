@@ -3,15 +3,20 @@ import { userLogin } from '../services/authService';
 import { AuthState, FormValues, UserData } from '../types';
 
 const initialState: AuthState = {
-  status: 'unauthorized',
+  status: 'unauthenticated',
   isAuthenticated: false,
   user: null,
 };
 export const authenticateUser = createAsyncThunk(
   'auth/authenticateUser',
   async (formData: FormValues) => {
-    const response = await userLogin(formData);
-    return response as UserData;
+    try {
+      const response = await userLogin(formData);
+      return response as UserData;
+    } catch (err) {
+      console.log(err);
+    }
+    throw new Error('Unable to login with the provided credentials');
   },
 );
 
@@ -29,6 +34,7 @@ export const authSlicer = createSlice({
       state.status = 'loading';
     });
     builder.addCase(authenticateUser.fulfilled, (state, action) => {
+      console.log(state, action);
       state.status = 'authenticated';
       state.isAuthenticated = true;
       state.user = action.payload;
