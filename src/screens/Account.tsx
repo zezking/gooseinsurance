@@ -70,16 +70,16 @@ const Account = (): JSX.Element => {
             <Typography fontSize="14px">{provinceZipCode.trim()}</Typography>
           </Container>
         </Container>
-        <FastImage
-          source={require('../assets/icons/pink-right-arrow-ghost.webp')}
-          style={{
-            position: 'absolute',
-            height: 30,
-            width: 30,
-            right: 20,
-            bottom: 35,
-          }}
-        />
+        <TouchableOpacity
+          style={{ position: 'absolute', right: 20, bottom: 35 }}>
+          <FastImage
+            source={require('../assets/icons/pink-right-arrow-ghost.webp')}
+            style={{
+              height: 30,
+              width: 30,
+            }}
+          />
+        </TouchableOpacity>
       </Container>
       <Container
         bgColor={theme.colors.white}
