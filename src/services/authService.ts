@@ -18,7 +18,6 @@ export const userLogin = async (data: FormValues): Promise<UserData> => {
 export const userLogout = async (): Promise<void> => {
   try {
     await persistor.purge();
-    console.log(persistor.getState());
   } catch (err: any) {
     const state = persistor.getState();
     throw new Error(err);

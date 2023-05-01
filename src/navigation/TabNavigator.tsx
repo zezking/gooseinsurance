@@ -52,11 +52,21 @@ const TabNavigator = (): JSX.Element => {
           height: '10%',
           position: 'absolute',
           paddingHorizontal: '15%',
+          backgroundColor: theme.colors.white,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 5,
+          },
+          shadowOpacity: 0.36,
+          shadowRadius: 6.68,
+
+          elevation: 11,
         },
         tabBarLabelStyle: {
           fontFamily: 'GraphikTrial-Medium',
           marginTop: 7,
-          color: theme.colors.text,
+          color: theme.colors.bottomTabText,
         },
         tabBarItemStyle: {},
         headerShown: false,

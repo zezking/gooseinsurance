@@ -10,6 +10,8 @@ import { theme } from '../theme';
 import { FlatGrid } from 'react-native-super-grid';
 import { HomeTabBarLabel } from '../components/HomeTabBarLabel';
 import { HomeHeader } from '../components/Headers';
+import { useCallback } from 'react';
+import { UserData } from '../types';
 
 const productImages = [
   require('../assets/icons/1.webp'),
@@ -22,46 +24,47 @@ const productImages = [
 const TopTab = createMaterialTopTabNavigator();
 
 const Home = (): JSX.Element => {
-  const authRes = useAppSelector(state => state.authRes);
-  if (!authRes) {
+  const authRes = useAppSelector(state => state.authRes as UserData);
+  if (!authRes?.products) {
     showMessage({
-      message: 'Error fetching user data',
+      message: 'Error fetching products',
     });
   }
 
+  const renderItem = useCallback(
+    ({ item }: { item: { id: number; title: string } }) => (
+      <TouchableWithoutFeedback key={item.id}>
+        <Card
+          height="106px"
+          width="106px"
+          alignItems="center"
+          justify="center"
+          style={{ borderRadius: 12, padding: 14, marginBottom: 10 }}>
+          <FastImage
+            source={productImages[item.id - 1]}
+            style={{ height: 45, width: 45, marginBottom: 5 }}
+          />
+          <Typography
+            fontSize="12px"
+            fontWeight="Medium"
+            style={{ textAlign: 'center' }}>
+            {item.title}
+          </Typography>
+        </Card>
+      </TouchableWithoutFeedback>
+    ),
+    [],
+  );
+
   const ProductTab = () => {
     return (
-      <Container bgColor={theme.colors.lightPurple} paddingHorizontal="5px">
-        <FlatGrid
-          itemDimension={90}
-          data={authRes?.products!}
-          spacing={7.5}
-          style={{ marginTop: -30 }}
-          renderItem={({ item }) => (
-            <Card
-              height="106px"
-              width="106px"
-              alignItems="center"
-              justify="center"
-              style={{ borderRadius: 12, padding: 14, marginBottom: 10 }}>
-              <TouchableWithoutFeedback key={item.id}>
-                <>
-                  <FastImage
-                    source={productImages[item.id - 1]}
-                    style={{ height: 45, width: 45, marginBottom: 5 }}
-                  />
-                  <Typography
-                    fontSize="12px"
-                    fontWeight="Medium"
-                    style={{ textAlign: 'center' }}>
-                    {item.title}
-                  </Typography>
-                </>
-              </TouchableWithoutFeedback>
-            </Card>
-          )}
-        />
-      </Container>
+      <FlatGrid
+        itemDimension={90}
+        data={authRes.products}
+        spacing={7.5}
+        style={{ marginTop: -30 }}
+        renderItem={renderItem}
+      />
     );
   };
   return (
@@ -74,9 +77,9 @@ const Home = (): JSX.Element => {
         style={{
           width: '100%',
         }}
+        sceneContainerStyle={{ backgroundColor: theme.colors.lightPurple }}
         screenOptions={{
           swipeEnabled: false,
-          animationEnabled: false,
           tabBarStyle: {
             backgroundColor: theme.colors.background,
             shadowOpacity: 0,
