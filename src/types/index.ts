@@ -23,18 +23,16 @@ export type UserData = {
     birthday: Date;
     address: string;
   };
-  products: [
-    {
-      id: number;
-      title: string;
-    },
-  ];
+  products: {
+    id: number;
+    title: string;
+  }[];
 };
 
 export type AuthState = {
   status: 'authenticated' | 'unauthenticated' | 'loading';
   isAuthenticated: boolean;
-  user: UserData | null;
+  authRes: UserData | null;
 };
 
 export type AuthResponse = {

@@ -5,7 +5,7 @@ import { AuthState, FormValues, UserData } from '../types';
 const initialState: AuthState = {
   status: 'unauthenticated',
   isAuthenticated: false,
-  user: null,
+  authRes: null,
 };
 export const authenticateUser = createAsyncThunk(
   'auth/authenticateUser',
@@ -26,7 +26,7 @@ export const authSlicer = createSlice({
   reducers: {
     logout: state => {
       state.isAuthenticated = false;
-      state.user = null;
+      state.authRes = null;
     },
   },
   extraReducers(builder) {
@@ -37,12 +37,12 @@ export const authSlicer = createSlice({
       console.log(state, action);
       state.status = 'authenticated';
       state.isAuthenticated = true;
-      state.user = action.payload;
+      state.authRes = action.payload;
     });
     builder.addCase(authenticateUser.rejected, state => {
       state.status = 'unauthenticated';
       state.isAuthenticated = false;
-      state.user = null;
+      state.authRes = null;
     });
   },
 });
