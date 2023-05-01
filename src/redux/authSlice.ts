@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { userLogin } from '../services/authService';
+import { userLogin, userLogout } from '../services/authService';
 import { AuthState, FormValues, UserData } from '../types';
+import { isAnyOf } from '@reduxjs/toolkit';
 
 const initialState: AuthState = {
   status: 'unauthenticated',
@@ -20,6 +21,19 @@ export const authenticateUser = createAsyncThunk(
   },
 );
 
+export const clearUserSession = createAsyncThunk(
+  'auth/clearUserSession',
+  async () => {
+    try {
+      await userLogout();
+      return initialState;
+    } catch (err) {
+      console.log(err);
+    }
+    throw new Error('Unable to logout');
+  },
+);
+
 export const authSlicer = createSlice({
   name: 'auth',
   initialState,
@@ -30,9 +44,6 @@ export const authSlicer = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(authenticateUser.pending, state => {
-      state.status = 'loading';
-    });
     builder.addCase(authenticateUser.fulfilled, (state, action) => {
       console.log(state, action);
       state.status = 'authenticated';
@@ -44,6 +55,16 @@ export const authSlicer = createSlice({
       state.isAuthenticated = false;
       state.authRes = null;
     });
+    builder.addCase(clearUserSession.fulfilled, (state, action) => {
+      state = action.payload;
+      return state;
+    });
+    builder.addMatcher(
+      isAnyOf(authenticateUser.pending, clearUserSession.pending),
+      state => {
+        state.status = 'loading';
+      },
+    );
   },
 });
 

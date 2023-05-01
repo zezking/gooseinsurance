@@ -20,7 +20,7 @@ export type AuthScreenNavigationProp = NativeStackScreenProps<
 export type UserData = {
   user: {
     name: string;
-    birthday: Date;
+    birthday: string;
     address: string;
   };
   products: {

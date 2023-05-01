@@ -13,6 +13,8 @@ export const theme: DefaultTheme = {
     red: '#D50032',
     lightPurple: '#FFCEE9',
     text: '#14162C',
+    bottomTabText: '#54566F',
     background: '#F9F9F9',
+    backgroundGray: '#F4F4F4',
   },
 };
