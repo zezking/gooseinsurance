@@ -44,7 +44,6 @@ const Login = (): JSX.Element => {
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
   } = useForm<FormValues>({
     defaultValues: {
