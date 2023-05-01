@@ -11,10 +11,12 @@ interface WrapperProps extends ViewProps {
   flexGrow?: number;
   flexShrink?: number;
   height?: string;
-  paddingLeft?: string;
-  paddingHorizontal?: string;
   width?: string;
+  flexWrap?: string;
+  paddingHorizontal?: string;
   paddingTop?: string;
+  paddingBottom?: string;
+  padding?: string;
 }
 
 const Wrapper = styled.View<WrapperProps>`
@@ -30,6 +32,8 @@ const Wrapper = styled.View<WrapperProps>`
   flex-shrink: ${props => props.flexShrink || 0};
   padding-top: ${props => props.paddingTop || 0};
   padding-horizontal: ${props => props.paddingHorizontal || 0};
+  padding-bottom: ${props => props.paddingBottom || 0};
+  flex-wrap: ${props => props.flexWrap};
 `;
 
 export const Container = ({ children, ...rest }: WrapperProps) => {

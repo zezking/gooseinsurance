@@ -5,11 +5,13 @@ interface WrapperProps extends ViewProps {
   height: string;
   width: string;
   position?: string;
+  justify?: string;
+  alignItems?: string;
 }
 
 const Wrapper = styled.View<WrapperProps>`
-  height: ${props => props.height};
-  width: ${props => props.width};
+  height: ${props => props.height || 'auto'};
+  width: ${props => props.width || 'auto'};
   position: ${props => props.position || 'static'};
   top: 35%;
   margin-left: auto;
@@ -22,6 +24,8 @@ const Wrapper = styled.View<WrapperProps>`
   border-radius: 25px;
   background-color: ${props => props.theme.colors.white};
   z-index: 99;
+  justify-content: ${props => props.justify || 'flex-start'};
+  align-items: ${props => props.alignItems || 'stretch'};
 `;
 
 export const Card = ({ children, ...rest }: WrapperProps) => {

@@ -9,11 +9,12 @@ declare module 'styled-components/native' {
       white: string;
       deepPurple: string;
       offWhite: string;
-      text: string;
       border: string;
       green: string;
       red: string;
       lightPurple: string;
+      text: string;
+      background: string;
     };
   }
 }

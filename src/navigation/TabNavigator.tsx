@@ -5,6 +5,7 @@ import { RootStackParamList } from '../types';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Account from '../screens/Account';
 import styled from 'styled-components/native';
+import { theme } from '../theme';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +28,7 @@ const TabNavigator = (): JSX.Element => {
           if (route.name === 'Home') {
             return (
               <NavIcon
+                style={{ marginTop: 20 }}
                 source={require('../assets/icons/nav-home.webp')}
                 focused={focused}
                 accessibilityLabel="Move to Home screen"
@@ -37,6 +39,7 @@ const TabNavigator = (): JSX.Element => {
           if (route.name === 'Account') {
             return (
               <NavIcon
+                style={{ marginTop: 20 }}
                 source={require('../assets/icons/nav-profile.webp')}
                 focused={focused}
                 accessibilityLabel="Move to Account screen"
@@ -46,21 +49,20 @@ const TabNavigator = (): JSX.Element => {
         },
         tabBarAccessibilityLabel: 'Navigation for Home and Account screens',
         tabBarStyle: {
-          height: '11%',
+          height: '10%',
           position: 'absolute',
           paddingHorizontal: '15%',
         },
         tabBarLabelStyle: {
-          fontWeight: 'bold',
-          color: 'black',
+          fontFamily: 'GraphikTrial-Medium',
+          marginTop: 7,
+          color: theme.colors.text,
         },
-        tabBarItemStyle: {
-          marginTop: '5%',
-          height: '50%',
-        },
+        tabBarItemStyle: {},
+        headerShown: false,
       })}>
-      <Stack.Screen name="Home" component={Home}></Stack.Screen>
-      <Stack.Screen name="Account" component={Account}></Stack.Screen>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Account" component={Account} />
     </Tab.Navigator>
   );
 };
