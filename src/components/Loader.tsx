@@ -14,7 +14,7 @@ export const Loader = () => {
       <ActivityIndicator size="large" color={theme.colors.white} />
       <Typography
         fontSize="18px"
-        fontWeight="SemiBold"
+        fontWeight="Semibold"
         marginTop="20px"
         color={theme.colors.white}>
         Loading...

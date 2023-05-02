@@ -29,7 +29,6 @@ const FlagButton = styled.TouchableOpacity`
   elevation: 10;
 `;
 
-//
 interface AuthButtonProps {
   borderBottomWidth?: string;
 }
@@ -67,7 +66,7 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
           />
           <Typography
             fontSize="13px"
-            fontWeight="SemiBold"
+            fontWeight="Semibold"
             marginTop="26px"
             marginBottom="50px"
             letterSpacing="2px"

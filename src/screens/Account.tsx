@@ -7,7 +7,8 @@ import { theme } from '../theme';
 import { Typography } from '../components/Typography';
 import { UserData } from '../types';
 import FastImage from 'react-native-fast-image';
-
+import { useState } from 'react';
+import { ConfirmModal } from '../components/ConfirmModal';
 const Account = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const authRes = useAppSelector(state => state.authRes as UserData);
@@ -16,6 +17,7 @@ const Account = (): JSX.Element => {
     month: 'short',
   })} ${userBirthDate.getUTCDate()}, ${userBirthDate.getFullYear()}`;
   const [street, room, city, provinceZipCode] = authRes.user.address.split(',');
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const handleLogout = async () => {
     try {
@@ -31,6 +33,12 @@ const Account = (): JSX.Element => {
 
   return (
     <Container bgColor={theme.colors.backgroundGray}>
+      <ConfirmModal
+        title="Logout of your Goose account?"
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        onConfirm={handleLogout}
+      />
       <Container
         height="31%"
         bgColor={theme.colors.white}
@@ -90,7 +98,7 @@ const Account = (): JSX.Element => {
         paddingTop="25px"
         justify="center">
         <TouchableOpacity
-          onPress={handleLogout}
+          onPress={() => setOpenModal(true)}
           style={{
             width: '100%',
             height: 65,
@@ -98,7 +106,7 @@ const Account = (): JSX.Element => {
             justifyContent: 'center',
             alignItems: 'center',
             marginHorizontal: 20,
-            borderRadius: 14,
+            borderRadius: 10,
             backgroundColor: theme.colors.primary,
           }}>
           <Typography

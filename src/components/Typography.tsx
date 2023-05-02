@@ -9,7 +9,7 @@ interface WrapperProps extends TextProps {
     | 'Light'
     | 'Medium'
     | 'Regular'
-    | 'SemiBold'
+    | 'Semibold'
     | 'Thin';
   letterSpacing?: string;
   marginTop?: string;

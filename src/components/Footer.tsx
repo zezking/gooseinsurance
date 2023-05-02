@@ -14,17 +14,17 @@ const Footer = (): JSX.Element => {
       <Wrapper>
         <Typography
           fontSize="11px"
-          fontWeight="SemiBold"
+          fontWeight="Semibold"
           marginBottom="8px"
           onPress={() => Linking.openURL(TERMS_OF_SERVICES_URL)}>
           Terms of Service
         </Typography>
-        <Typography fontSize="11px" fontWeight="SemiBold">
+        <Typography fontSize="11px" fontWeight="Semibold">
           &nbsp; | &nbsp;
         </Typography>
         <Typography
           fontSize="11px"
-          fontWeight="SemiBold"
+          fontWeight="Semibold"
           marginBottom="8px"
           onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}>
           Privacy Policy

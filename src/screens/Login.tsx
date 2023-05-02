@@ -91,21 +91,22 @@ const Login = (): JSX.Element => {
         <KeyboardAwareScrollView style={{ width: '100%', height: '100%' }}>
           <Container
             alignItems="flex-start"
+            height="40%"
             paddingHorizontal="20px"
-            height="100%"
             width="100%">
             <Typography
               fontSize="26px"
-              fontWeight="SemiBold"
+              fontWeight="Bold"
               color="black"
-              marginBottom="40px">
+              marginBottom="40px"
+              style={{ lineHeight: 40 }}>
               Login
             </Typography>
             <Container
               width="100%"
-              height="55px"
+              height="30%"
               alignItems="flex-start"
-              marginBottom={Platform.OS === 'android' ? '50px' : '25px'}>
+              marginBottom="55px">
               <Typography
                 fontSize="12px"
                 color={theme.colors.gray}
@@ -153,7 +154,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? 0 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : 10,
                           }}
                         />
                       )}
@@ -165,7 +166,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? 0 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : 10,
                           }}
                         />
                       )}
@@ -176,7 +177,7 @@ const Login = (): JSX.Element => {
               />
             </Container>
 
-            <Container width="100%" alignItems="flex-start">
+            <Container width="100%" height="30%" alignItems="flex-start">
               <Typography
                 fontSize="12px"
                 letterSpacing="1px"
@@ -222,7 +223,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? 0 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : 10,
                           }}
                         />
                       )}
@@ -235,7 +236,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? 0 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : 10,
                           }}
                         />
                       )}
@@ -252,7 +253,6 @@ const Login = (): JSX.Element => {
           style={{
             height: '10%',
             width: '100%',
-            backgroundColor: theme.colors.primary,
           }}>
           <TouchableOpacity
             onPress={handleSubmit(onSubmit)}
