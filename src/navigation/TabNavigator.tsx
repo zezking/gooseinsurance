@@ -67,7 +67,7 @@ const TabNavigator = (): JSX.Element => {
           fontFamily: 'GraphikTrial-Medium',
           marginTop: Platform.OS === 'android' ? 0 : 7,
           marginBottom: Platform.OS === 'android' ? 7 : 0,
-          color: theme.colors.bottomTabText,
+          color: theme.colors.textSecondary,
         },
         headerShown: false,
       })}>

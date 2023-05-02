@@ -26,7 +26,8 @@ export const HomeTabBarLabel = ({ focused, name }: HomeTabBarLabelProps) => {
         fontSize="12px"
         fontWeight="Medium"
         marginTop="10px"
-        marginBottom="5px">
+        marginBottom="5px"
+        color={theme.colors.text}>
         {name}
       </Typography>
       {focused && <Triangle />}
