@@ -64,6 +64,7 @@ const Home = (): JSX.Element => {
         spacing={7.5}
         style={{ marginTop: -30 }}
         renderItem={renderItem}
+        contentContainerStyle={{ height: '100%' }}
       />
     );
   };
@@ -77,15 +78,21 @@ const Home = (): JSX.Element => {
         style={{
           width: '100%',
         }}
-        sceneContainerStyle={{ backgroundColor: theme.colors.lightPurple }}
+        sceneContainerStyle={{
+          backgroundColor: theme.colors.lightPurple,
+          height: '100%',
+        }}
         screenOptions={{
           swipeEnabled: false,
+          animationEnabled: false,
           tabBarStyle: {
             backgroundColor: theme.colors.background,
             shadowOpacity: 0,
             marginHorizontal: 10,
+            elevation: 0,
           },
           tabBarIndicator: () => null,
+          tabBarAndroidRipple: { color: null },
         }}>
         <TopTab.Screen
           name="Life & Health"
@@ -94,6 +101,7 @@ const Home = (): JSX.Element => {
             tabBarLabel: ({ focused }) => (
               <HomeTabBarLabel focused={focused} name="Life & Health" />
             ),
+            tabBarPressColor: 'none',
           }}
         />
         <TopTab.Screen

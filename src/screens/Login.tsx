@@ -1,5 +1,6 @@
 import {
   Keyboard,
+  Platform,
   StatusBar,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -93,7 +94,7 @@ const Login = (): JSX.Element => {
             width="100%"
             height="55px"
             alignItems="flex-start"
-            marginBottom="25px">
+            marginBottom={Platform.OS === 'android' ? '50px' : '25px'}>
             <Typography
               fontSize="12px"
               color={theme.colors.gray}
@@ -138,7 +139,11 @@ const Login = (): JSX.Element => {
                         name="exclamationcircle"
                         color={theme.colors.red}
                         size={20}
-                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          bottom: Platform.OS === 'android' ? 0 : 10,
+                        }}
                       />
                     )}
                     {!invalid && isTouched && (
@@ -146,7 +151,11 @@ const Login = (): JSX.Element => {
                         name="checkcircle"
                         color={theme.colors.green}
                         size={20}
-                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          bottom: Platform.OS === 'android' ? 0 : 10,
+                        }}
                       />
                     )}
                   </>
@@ -199,7 +208,11 @@ const Login = (): JSX.Element => {
                         name="exclamationcircle"
                         color={theme.colors.red}
                         size={20}
-                        style={{ position: 'absolute', right: 0, bottom: 10 }}
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          bottom: Platform.OS === 'android' ? 0 : 10,
+                        }}
                       />
                     )}
 
@@ -211,7 +224,7 @@ const Login = (): JSX.Element => {
                         style={{
                           position: 'absolute',
                           right: 0,
-                          bottom: 10,
+                          bottom: Platform.OS === 'android' ? 0 : 10,
                         }}
                       />
                     )}

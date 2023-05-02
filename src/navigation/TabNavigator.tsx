@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Account from '../screens/Account';
 import styled from 'styled-components/native';
 import { theme } from '../theme';
+import { Platform } from 'react-native';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +17,6 @@ interface NavIconProps {
 const NavIcon = styled.Image<NavIconProps>`
   width: 20px;
   height: 20px;
-  margin-bottom: 5px;
   tint-color: ${props =>
     props.focused ? props.theme.colors.primary : props.theme.colors.text};
 `;
@@ -28,7 +28,7 @@ const TabNavigator = (): JSX.Element => {
           if (route.name === 'Home') {
             return (
               <NavIcon
-                style={{ marginTop: 20 }}
+                style={{ marginTop: Platform.OS === 'android' ? 10 : 20 }}
                 source={require('../assets/icons/nav-home.webp')}
                 focused={focused}
                 accessibilityLabel="Move to Home screen"
@@ -39,7 +39,7 @@ const TabNavigator = (): JSX.Element => {
           if (route.name === 'Account') {
             return (
               <NavIcon
-                style={{ marginTop: 20 }}
+                style={{ marginTop: Platform.OS === 'android' ? 10 : 20 }}
                 source={require('../assets/icons/nav-profile.webp')}
                 focused={focused}
                 accessibilityLabel="Move to Account screen"
@@ -60,15 +60,15 @@ const TabNavigator = (): JSX.Element => {
           },
           shadowOpacity: 0.36,
           shadowRadius: 6.68,
-
           elevation: 11,
         },
         tabBarLabelStyle: {
+          height: 25,
           fontFamily: 'GraphikTrial-Medium',
-          marginTop: 7,
+          marginTop: Platform.OS === 'android' ? 0 : 7,
+          marginBottom: Platform.OS === 'android' ? 7 : 0,
           color: theme.colors.bottomTabText,
         },
-        tabBarItemStyle: {},
         headerShown: false,
       })}>
       <Stack.Screen name="Home" component={Home} />

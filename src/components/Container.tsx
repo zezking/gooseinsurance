@@ -33,7 +33,6 @@ const Wrapper = styled.View<WrapperProps>`
   padding-top: ${props => props.paddingTop || 0};
   padding-horizontal: ${props => props.paddingHorizontal || 0};
   padding-bottom: ${props => props.paddingBottom || 0};
-  flex-wrap: ${props => props.flexWrap};
 `;
 
 export const Container = ({ children, ...rest }: WrapperProps) => {
