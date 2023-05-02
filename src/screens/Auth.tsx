@@ -1,4 +1,3 @@
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthScreenNavigationProp, RootStackParamList } from '../types';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
@@ -8,6 +7,7 @@ import { Container } from '../components/Container';
 import { AuthHeader } from '../components/Headers';
 import { StatusBar } from 'react-native';
 import { Typography } from '../components/Typography';
+import { theme } from '../theme';
 
 const logoStyle = { width: 215, height: 70 };
 const flagIconStyle = {
@@ -51,7 +51,10 @@ const buttonIconStyle = {
 const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
   return (
     <Container>
-      <StatusBar barStyle="light-content" backgroundColor="#AD3272" />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={theme.colors.deepPurple}
+      />
       <AuthHeader>
         <Container alignItems="center" marginTop="45px">
           <FlagButton>
@@ -70,7 +73,7 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             marginTop="26px"
             marginBottom="50px"
             letterSpacing="2px"
-            color="#F0F0F0">
+            color={theme.colors.white}>
             THE INSURANCE SUPER-APP
           </Typography>
         </Container>
@@ -81,7 +84,10 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             style={buttonIconStyle}
             source={require('../assets/icons/facebookv2.webp')}
           />
-          <Typography fontSize="14px" fontWeight="Medium">
+          <Typography
+            fontSize="14px"
+            fontWeight="Medium"
+            color={theme.colors.black}>
             Continue with Facebook
           </Typography>
         </AuthButton>
@@ -90,7 +96,10 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             style={buttonIconStyle}
             source={require('../assets/icons/gplus.webp')}
           />
-          <Typography fontSize="14px" fontWeight="Medium">
+          <Typography
+            fontSize="14px"
+            fontWeight="Medium"
+            color={theme.colors.black}>
             Continue with Google
           </Typography>
         </AuthButton>
@@ -99,7 +108,10 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             style={buttonIconStyle}
             source={require('../assets/icons/apple.webp')}
           />
-          <Typography fontSize="14px" fontWeight="Medium">
+          <Typography
+            fontSize="14px"
+            fontWeight="Medium"
+            color={theme.colors.black}>
             Continue with Apple
           </Typography>
         </AuthButton>
@@ -115,7 +127,10 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
             source={require('../assets/icons/mailv2.webp')}
             resizeMode={FastImage.resizeMode.contain}
           />
-          <Typography fontSize="14px" fontWeight="Medium">
+          <Typography
+            fontSize="14px"
+            fontWeight="Medium"
+            color={theme.colors.black}>
             Login with Email
           </Typography>
         </AuthButton>

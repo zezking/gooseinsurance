@@ -51,7 +51,8 @@ const Account = (): JSX.Element => {
           fontSize="25px"
           fontWeight="Bold"
           letterSpacing="-1px"
-          marginBottom="20px">
+          marginBottom="20px"
+          color={theme.colors.text}>
           {authRes.user.name}
         </Typography>
         <Container

@@ -14,7 +14,9 @@ declare module 'styled-components/native' {
       red: string;
       lightPurple: string;
       text: string;
-      bottomTabText: string;
+      textSecondary: string;
+      textFooter: string;
+      textCard: string;
       background: string;
       backgroundGray: string;
     };

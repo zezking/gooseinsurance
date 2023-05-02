@@ -47,6 +47,7 @@ const Home = (): JSX.Element => {
           <Typography
             fontSize="12px"
             fontWeight="Medium"
+            color={theme.colors.textCard}
             style={{ textAlign: 'center' }}>
             {item.title}
           </Typography>
@@ -71,7 +72,10 @@ const Home = (): JSX.Element => {
   return (
     <Container bgColor={theme.colors.background}>
       <HomeHeader />
-      <Typography fontSize="14px" marginBottom="30px">
+      <Typography
+        fontSize="14px"
+        marginBottom="30px"
+        color={theme.colors.textSecondary}>
         Hi {authRes?.user.name}, what would you like to protect?
       </Typography>
       <TopTab.Navigator
@@ -101,7 +105,6 @@ const Home = (): JSX.Element => {
             tabBarLabel: ({ focused }) => (
               <HomeTabBarLabel focused={focused} name="Life & Health" />
             ),
-            tabBarPressColor: 'none',
           }}
         />
         <TopTab.Screen

@@ -97,7 +97,7 @@ const Login = (): JSX.Element => {
             <Typography
               fontSize="26px"
               fontWeight="Bold"
-              color="black"
+              color={theme.colors.text}
               marginBottom="40px"
               style={{ lineHeight: 40 }}>
               Login
@@ -154,7 +154,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? -20 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : -15,
                           }}
                         />
                       )}
@@ -166,7 +166,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? -20 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : -15,
                           }}
                         />
                       )}
@@ -223,7 +223,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? -20 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : -15,
                           }}
                         />
                       )}
@@ -236,7 +236,7 @@ const Login = (): JSX.Element => {
                           style={{
                             position: 'absolute',
                             right: 0,
-                            bottom: Platform.OS === 'android' ? -20 : 10,
+                            bottom: Platform.OS === 'android' ? -20 : -15,
                           }}
                         />
                       )}
