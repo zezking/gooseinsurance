@@ -63,7 +63,7 @@ const TabNavigator = (): JSX.Element => {
           elevation: 11,
         },
         tabBarLabelStyle: {
-          height: 25,
+          height: Platform.OS === 'android' ? 25 : 'auto',
           fontFamily: 'GraphikTrial-Medium',
           marginTop: Platform.OS === 'android' ? 0 : 7,
           marginBottom: Platform.OS === 'android' ? 7 : 0,
