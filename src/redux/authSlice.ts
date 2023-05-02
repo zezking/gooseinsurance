@@ -45,7 +45,6 @@ export const authSlicer = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(authenticateUser.fulfilled, (state, action) => {
-      console.log(state, action);
       state.status = 'authenticated';
       state.isAuthenticated = true;
       state.authRes = action.payload;
