@@ -1,9 +1,9 @@
 import FastImage from 'react-native-fast-image';
 import { Container } from './Container';
 import { Typography } from './Typography';
-import { View } from 'react-native/';
+import { Platform, View } from 'react-native/';
 import { theme } from '../theme';
-
+import Svg, { Path, Polygon, Rect } from 'react-native-svg';
 interface HomeTabBarLabelProps {
   focused: boolean;
   name: string;
@@ -11,20 +11,9 @@ interface HomeTabBarLabelProps {
 export const HomeTabBarLabel = ({ focused, name }: HomeTabBarLabelProps) => {
   const Triangle = () => {
     return (
-      <View
-        style={{
-          width: 0,
-          height: 0,
-          backgroundColor: 'transparent',
-          borderStyle: 'solid',
-          borderLeftWidth: 70,
-          borderRightWidth: 70,
-          borderBottomWidth: 45,
-          borderLeftColor: 'transparent',
-          borderRightColor: 'transparent',
-          borderColor: theme.colors.lightPurple,
-        }}
-      />
+      <Svg height={16} width={60} viewBox="0 0 60 16">
+        <Path d="M 30 0 L 0 16 L 60 16 Z" fill={theme.colors.lightPurple} />
+      </Svg>
     );
   };
   return (
