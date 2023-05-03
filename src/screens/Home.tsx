@@ -10,7 +10,7 @@ import { theme } from '../theme';
 import { FlatGrid } from 'react-native-super-grid';
 import { HomeTabBarLabel } from '../components/HomeTabBarLabel';
 import { HomeHeader } from '../components/Headers';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { UserData } from '../types';
 
 const productImages = [
@@ -25,6 +25,9 @@ const TopTab = createMaterialTopTabNavigator();
 
 const Home = (): JSX.Element => {
   const authRes = useAppSelector(state => state.authRes as UserData);
+  const [tabContainerColor, setTabContainerColor] = useState<string>(
+    theme.colors.lightPurple,
+  );
   if (!authRes?.products) {
     showMessage({
       message: 'Error fetching products',
@@ -57,11 +60,13 @@ const Home = (): JSX.Element => {
     [],
   );
 
-  const ProductTab = () => {
+  const ProductTab = ({ indexStart }: { indexStart: number }): JSX.Element => {
+    //Rendering different number of items and background colors in each product section to show the topTabBar is dynamic
+    const items = authRes.products.slice(indexStart);
     return (
       <FlatGrid
         itemDimension={90}
-        data={authRes.products}
+        data={items}
         spacing={7.5}
         style={{ marginTop: -30 }}
         renderItem={renderItem}
@@ -83,7 +88,7 @@ const Home = (): JSX.Element => {
           width: '100%',
         }}
         sceneContainerStyle={{
-          backgroundColor: theme.colors.lightPurple,
+          backgroundColor: tabContainerColor,
           height: '100%',
         }}
         screenOptions={{
@@ -100,40 +105,68 @@ const Home = (): JSX.Element => {
         }}>
         <TopTab.Screen
           name="Life & Health"
-          component={ProductTab}
           options={{
             tabBarLabel: ({ focused }) => (
-              <HomeTabBarLabel focused={focused} name="Life & Health" />
+              <HomeTabBarLabel
+                focused={focused}
+                name="Life & Health"
+                color={tabContainerColor}
+              />
             ),
           }}
-        />
+          listeners={{
+            tabPress: () => setTabContainerColor(theme.colors.lightPurple),
+          }}>
+          {props => <ProductTab indexStart={0} {...props} />}
+        </TopTab.Screen>
         <TopTab.Screen
           name="Travel"
-          component={ProductTab}
           options={{
             tabBarLabel: ({ focused }) => (
-              <HomeTabBarLabel focused={focused} name="Travel" />
+              <HomeTabBarLabel
+                focused={focused}
+                name="Travel"
+                color={tabContainerColor}
+              />
             ),
           }}
-        />
+          listeners={{
+            tabPress: () => setTabContainerColor(theme.colors.lightGreen),
+          }}>
+          {props => <ProductTab indexStart={1} {...props} />}
+        </TopTab.Screen>
         <TopTab.Screen
           name="Property"
-          component={ProductTab}
           options={{
             tabBarLabel: ({ focused }) => (
-              <HomeTabBarLabel focused={focused} name="Property" />
+              <HomeTabBarLabel
+                focused={focused}
+                name="Property"
+                color={tabContainerColor}
+              />
             ),
           }}
-        />
+          listeners={{
+            tabPress: () => setTabContainerColor(theme.colors.lightYellow),
+          }}>
+          {props => <ProductTab indexStart={2} {...props} />}
+        </TopTab.Screen>
         <TopTab.Screen
           name="Mobility"
-          component={ProductTab}
           options={{
             tabBarLabel: ({ focused }) => (
-              <HomeTabBarLabel focused={focused} name="Mobility" />
+              <HomeTabBarLabel
+                focused={focused}
+                name="Mobility"
+                color={tabContainerColor}
+              />
             ),
           }}
-        />
+          listeners={{
+            tabPress: () => setTabContainerColor(theme.colors.lightBlue),
+          }}>
+          {props => <ProductTab indexStart={3} {...props} />}
+        </TopTab.Screen>
       </TopTab.Navigator>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { AuthScreenNavigationProp, RootStackParamList } from '../types';
+import { AuthScreenNavigationProp } from '../types';
 import styled from 'styled-components/native';
 import FastImage from 'react-native-fast-image';
 import Footer from '../components/Footer';
@@ -78,7 +78,7 @@ const Auth = ({ navigation }: AuthScreenNavigationProp): JSX.Element => {
           </Typography>
         </Container>
       </AuthHeader>
-      <Card height="312px" width="310px" position="absolute">
+      <Card height="314px" width="310px" position="absolute">
         <AuthButton borderBottomWidth="1px">
           <FastImage
             style={buttonIconStyle}
