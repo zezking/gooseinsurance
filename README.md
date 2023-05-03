@@ -6,6 +6,8 @@ This is a technical assessment project from Goose Insurance
 
 Follow this [guide](https://reactnative.dev/docs/environment-setup) to set up your environment base on your development OS
 
+`cp .env.exmaple .env` and use this url for AUTH_URL value `https://gslwn81z5i.execute-api.us-east-2.amazonaws.com/goose/technical-challenge/login`
+
 ### Install Dependencies
 
 `npm i`
