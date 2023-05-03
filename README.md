@@ -2,6 +2,11 @@
 
 This is a technical assessment project from Goose Insurance
 
+### Demos
+
+[iOS demo](https://i.imgur.com/XUQttaF.gif)
+[Android demo](https://i.imgur.com/51vg37b.gif)
+
 ### Setting up the Development Environment
 
 Follow this [guide](https://reactnative.dev/docs/environment-setup) to set up your environment base on your development OS

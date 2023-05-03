@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const StackNavigator = (): JSX.Element => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Auth" component={Auth} />
+      <Stack.Screen
+        name="Auth"
+        component={Auth}
+        options={{ animation: 'none' }}
+      />
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
