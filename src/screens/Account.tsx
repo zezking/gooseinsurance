@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native';
+import { Platform, TouchableOpacity } from 'react-native';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { clearUserSession } from '../redux/authSlice';
 import { showMessage } from 'react-native-flash-message';
@@ -44,13 +44,12 @@ const Account = (): JSX.Element => {
         bgColor={theme.colors.white}
         alignItems="flex-start"
         paddingHorizontal="20px"
-        paddingTop="93px"
+        paddingTop={Platform.OS === 'android' ? '50px' : '93px'}
         paddingBottom="45px"
         marginBottom="10px">
         <Typography
           fontSize="25px"
           fontWeight="Bold"
-          letterSpacing="-1px"
           marginBottom="20px"
           color={theme.colors.text}>
           {authRes.user.name}

@@ -1,5 +1,5 @@
 import { Container } from './Container';
-import { TouchableOpacity } from 'react-native';
+import { Platform, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import { theme } from '../theme';
@@ -55,7 +55,7 @@ export const HomeHeader = () => {
     <Container
       flexDirection="row"
       height="10%"
-      marginTop="40px"
+      marginTop={Platform.OS === 'android' ? '20px' : '40px'}
       justify="space-between"
       paddingHorizontal="20px"
       style={{ paddingHorizontal: 20 }}>

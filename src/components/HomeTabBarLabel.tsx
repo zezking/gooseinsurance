@@ -7,12 +7,17 @@ import Svg, { Path, Polygon, Rect } from 'react-native-svg';
 interface HomeTabBarLabelProps {
   focused: boolean;
   name: string;
+  color: string;
 }
-export const HomeTabBarLabel = ({ focused, name }: HomeTabBarLabelProps) => {
+export const HomeTabBarLabel = ({
+  focused,
+  name,
+  color,
+}: HomeTabBarLabelProps) => {
   const Triangle = () => {
     return (
       <Svg height={16} width={60} viewBox="0 0 60 16">
-        <Path d="M 30 0 L 0 16 L 60 16 Z" fill={theme.colors.lightPurple} />
+        <Path d="M 30 0 L 0 16 L 60 16 Z" fill={color} />
       </Svg>
     );
   };
