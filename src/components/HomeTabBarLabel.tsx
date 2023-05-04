@@ -1,9 +1,8 @@
 import FastImage from 'react-native-fast-image';
 import { Container } from './Container';
 import { Typography } from './Typography';
-import { Platform, View } from 'react-native/';
 import { theme } from '../theme';
-import Svg, { Path, Polygon, Rect } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 interface HomeTabBarLabelProps {
   focused: boolean;
   name: string;
